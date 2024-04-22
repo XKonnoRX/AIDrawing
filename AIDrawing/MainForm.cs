@@ -92,12 +92,12 @@ namespace AIDrawing
             }
             return res.ToArray();
         }
-        (int, double, double)[] Train2(IProgress<(int, double, double)> progress)
+        (int, double, double)[] Train2(IProgress<(int, double, double)> progress) // переделано для использования динамического количества слоев
         {
             int pixels = (int)(numericWeight.Value * numericHeight.Value); // Размер входного слоя (1024 входа)
             int hiddenNeurons = (int)numericHiddenLayer.Value; // Число нейронов в скрытом слое
             int outputNeurons = (int)numericClasses.Value; // Количество классов (10)
-            network2 = new NeuralNetworkBetter(new int[] { pixels, hiddenNeurons, 64, 8, outputNeurons });
+            network2 = new NeuralNetworkBetter(new int[] { pixels, hiddenNeurons, 64, 8, outputNeurons }); // можно добавлять скрытые слои, указывая количество нейронов в каждом слое
 
             (Vector<double>[] trainingInputs, int[] trainingLabels) = DataImporter.LoadData(trainingSet);
             Vector<double>[] trainingTargets = ConvertLabelsToOneHotVectors(trainingLabels, outputNeurons);

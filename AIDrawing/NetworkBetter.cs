@@ -1,14 +1,5 @@
-﻿using System;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
-using System.Text.Json;
-using AIDrawing;
-using CsvHelper;
-using MathNet.Numerics.LinearAlgebra;
-using MathNet.Numerics.LinearAlgebra.Double;
+﻿using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.Statistics;
-using Newtonsoft.Json;
-
 public class NeuralNetworkBetter
 {
     public List<(Matrix<double> weights, Vector<double> bias)>  Neyrons = new List<(Matrix<double>, Vector<double>)>();
